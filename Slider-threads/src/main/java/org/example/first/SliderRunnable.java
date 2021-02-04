@@ -14,7 +14,9 @@ public class SliderRunnable implements Runnable {
   public void run() {
     while (!Thread.currentThread().isInterrupted()) {
       synchronized (slider) {
-        slider.setValue(slider.getValue() + direction.value);
+        int newValue = slider.getValue() + direction.value;
+        if (newValue <= 90 && newValue >= 10) slider.setValue(newValue);
+
         try {
           Thread.sleep(50);
         } catch (InterruptedException e) {
@@ -23,5 +25,4 @@ public class SliderRunnable implements Runnable {
       }
     }
   }
-
 }
