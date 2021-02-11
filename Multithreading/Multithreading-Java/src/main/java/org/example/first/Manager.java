@@ -1,22 +1,25 @@
 package org.example.first;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class Manager {
   private final int workersNumber;
   private final Forest forest;
   private final List<Thread> workers = new ArrayList<>();
-  private final Queue<Integer> tasks = new LinkedList<>();
+  private final BlockingQueue<Integer> tasks;
   private final SynchronizedBoolean foundTarget = new SynchronizedBoolean(false);
 
   public Manager(Forest forest, int workersNumber) {
     this.forest = forest;
     this.workersNumber = workersNumber;
+    tasks = new BlockingQueue<>(forest.getForest().length);
     for (int i = 0; i < forest.getForest().length; i++) {
-      tasks.add(i);
+      try {
+        tasks.enqueue(i);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     }
   }
 
@@ -46,8 +49,12 @@ public class Manager {
   }
 
   private synchronized void submitTaskToThread(TaskExecutor worker) {
-    if (!tasks.isEmpty()) {
-      worker.submitTask(tasks.poll());
+    if (tasks.getCurrentSize() != 0) {
+      try {
+        worker.submitTask(tasks.dequeue());
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     }
   }
 }

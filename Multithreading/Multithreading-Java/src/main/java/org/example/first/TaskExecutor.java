@@ -2,11 +2,12 @@ package org.example.first;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
 
 public class TaskExecutor implements Runnable {
   private volatile boolean running = true;
-  private volatile boolean foundTarget = false;
+  private final SynchronizedBoolean foundTarget = new SynchronizedBoolean(false);
   private final List<Listener> listeners = new ArrayList<>();
   private Integer currentTask = null;
   private final Forest forest;
@@ -29,7 +30,7 @@ public class TaskExecutor implements Runnable {
         log.info("Starting running task by thread " + Thread.currentThread().getName());
         for (int i = 0; i < forest.getForest().length; i++)
           if (forest.getForest()[currentTask][i]) {
-            foundTarget = true;
+            foundTarget.makeTrue();
             log.info("Task has been found by " + Thread.currentThread().getName());
           }
         log.info("Task has been completed by " + Thread.currentThread().getName());
@@ -45,7 +46,7 @@ public class TaskExecutor implements Runnable {
   }
 
   public boolean isFoundTarget() {
-    return foundTarget;
+    return foundTarget.getBoolean();
   }
 
   // Listeners functionality

@@ -1,6 +1,5 @@
 package org.example.first;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Forest {
