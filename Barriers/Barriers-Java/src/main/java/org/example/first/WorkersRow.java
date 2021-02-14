@@ -11,9 +11,9 @@ public class WorkersRow {
   private final int workersNumber;
   private final int threadsNumber;
   private ExecutorService service;
-  public List<Direction> workersDirections;
-  public CustomCyclicBarrier barrier;
-  public ArrayList<WorkersRunnable> runnables;
+  private final ArrayList<WorkersRunnable> runnables;
+  protected List<Direction> workersDirections;
+  protected CustomCyclicBarrier barrier;
 
   public WorkersRow(int workersNumber, int threadsNumber) {
     this.workersNumber = workersNumber;
@@ -41,18 +41,19 @@ public class WorkersRow {
       service.submit(runnable);
       runnables.add(runnable);
       left = right + 1;
-      right = left + threadWorkersNumber - 1;
+      if (i == threadsNumber - 2) right = workersNumber - 1;
+      else right = left + threadWorkersNumber - 1;
     }
   }
 
-  public void printRowState() {
+  protected void printRowState() {
     System.out.println();
     for (int i = 0; i < workersNumber; i++) {
       System.out.print(workersDirections.get(i) + " ");
     }
   }
 
-  public boolean checkRowState() {
+  protected boolean checkRowState() {
     for (int i = 0; i < workersNumber - 1; i++) {
       if (workersDirections.get(i).equals(Direction.RIGHT)
           && workersDirections.get(i + 1).equals(Direction.LEFT)) return false;
