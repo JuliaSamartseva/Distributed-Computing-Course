@@ -9,5 +9,8 @@
         <module name="Binary-Semaphores-Java" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Binary-Semaphores-Java" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

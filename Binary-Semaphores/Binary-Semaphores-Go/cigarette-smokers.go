@@ -23,7 +23,7 @@ var smokeMap = map[int]SmokingObject{
 	2: Matches,
 }
 
-type SmokingObjectChannels struct {
+type SmokingObjectSemaphores struct {
 	tobacco *semaphore.Weighted
 	paper   *semaphore.Weighted
 	matches *semaphore.Weighted
@@ -33,7 +33,7 @@ func (temp SmokingObject) String() string {
 	return [...]string{"Tobacco", "Paper", "Matches"}[temp]
 }
 
-func middle(ctx context.Context, wg *sync.WaitGroup, channels SmokingObjectChannels, smokers [3]chan SmokingObject) {
+func middle(ctx context.Context, wg *sync.WaitGroup, channels SmokingObjectSemaphores, smokers [3]chan SmokingObject) {
 	for {
 		time.Sleep(100 * time.Millisecond)
 		randomObject := smokeMap[rand.Intn(3)]
@@ -75,7 +75,7 @@ func smoker(wg *sync.WaitGroup, name string, smokeType SmokingObject, neededObje
 }
 
 func main() {
-	var channels SmokingObjectChannels
+	var channels SmokingObjectSemaphores
 	ctx := context.Background()
 	channels.paper = semaphore.NewWeighted(int64(10))
 	channels.tobacco = semaphore.NewWeighted(int64(10))
