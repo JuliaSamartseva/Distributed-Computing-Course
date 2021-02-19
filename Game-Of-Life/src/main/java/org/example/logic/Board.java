@@ -62,6 +62,14 @@ public class Board {
     return neighbours;
   }
 
+  public void regenerateBoard() {
+    Random random = new Random();
+    for (int i = 0; i < width; i++)
+      for (int j = 0; j < height; j++) {
+        cells[i][j].setAlive(random.nextBoolean());
+      }
+  }
+
   public Cell get(int i, int j) {
     try {
       return cells[i][j];

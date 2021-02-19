@@ -4,6 +4,8 @@ import org.example.graphics.Screen;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -22,8 +24,7 @@ public class Game extends Canvas implements Runnable {
   private volatile boolean running = false;
 
   public Game() {
-    Dimension size = new Dimension(width * scale, height * scale);
-    setPreferredSize(size);
+    setPreferredSize(new Dimension(width * scale, height * scale));
     frame = new JFrame();
     setFrameProperties();
     screen = new Screen(width, height);
@@ -83,8 +84,8 @@ public class Game extends Canvas implements Runnable {
     for (int i = 0; i < pixels.length; i++) {
       pixels[i] = screen.pixels[i];
     }
-    Graphics g = bs.getDrawGraphics();
 
+    Graphics g = bs.getDrawGraphics();
     g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
     g.dispose();
     bs.show();
@@ -97,6 +98,19 @@ public class Game extends Canvas implements Runnable {
     frame.pack();
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setLocationRelativeTo(null);
+    frame.addKeyListener(
+        new KeyListener() {
+          @Override
+          public void keyTyped(KeyEvent e) {}
+
+          @Override
+          public void keyPressed(KeyEvent e) {
+            screen.regenerateBoard();
+          }
+
+          @Override
+          public void keyReleased(KeyEvent e) {}
+        });
     frame.setVisible(true);
   }
 }

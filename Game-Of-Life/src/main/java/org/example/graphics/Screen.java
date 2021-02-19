@@ -30,6 +30,10 @@ public class Screen {
     pixels = new int[width * height];
   }
 
+  public void regenerateBoard() {
+    board.regenerateBoard();
+  }
+
   public void clear() {
     Arrays.fill(pixels, 0);
   }
