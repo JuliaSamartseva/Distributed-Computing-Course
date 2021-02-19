@@ -1,8 +1,5 @@
 package org.example.logic;
 
-import java.util.Random;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-
 public class Cell {
   public boolean alive;
 

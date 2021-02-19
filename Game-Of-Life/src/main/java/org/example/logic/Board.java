@@ -63,6 +63,11 @@ public class Board {
   }
 
   public Cell get(int i, int j) {
-    return cells[i][j];
+    try {
+      return cells[i][j];
+    } catch (ArrayIndexOutOfBoundsException e) {
+      throw new ArrayIndexOutOfBoundsException(
+          "i = " + i + " maximum width = " + width + " j = " + j + " maximum height = " + height);
+    }
   }
 }

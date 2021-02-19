@@ -14,14 +14,12 @@ public class Game extends Canvas implements Runnable {
   public static int width = 400;
   public static int height = width / 16 * 9;
   public static int scale = 3;
-
-  private Thread thread;
   private final JFrame frame;
-  private volatile boolean running = false;
   private final Screen screen;
-
   private final BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
   private final int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+  private Thread thread;
+  private volatile boolean running = false;
 
   public Game() {
     Dimension size = new Dimension(width * scale, height * scale);
@@ -51,40 +49,28 @@ public class Game extends Canvas implements Runnable {
     while (running) {
       long lastTime = System.nanoTime();
       long timer = System.currentTimeMillis();
-      final double ns = 1000000000.0 / 60.0;
+      final double ns = 1000000000.0 / 6.0;
       double delta = 0;
-      int frames = 0;
-      int updates = 0;
       while (running) {
         long now = System.nanoTime();
         delta += (now - lastTime) / ns;
         lastTime = now;
-
         while (delta >= 1) {
           update();
-          updates++;
           delta--;
         }
-
         render();
-        frames++;
-
         if (System.currentTimeMillis() - timer > 1000) {
           timer += 1000;
-
-          System.out.println(updates + "updates, " + frames + "fps");
-          frame.setTitle(
-              "Display" + " running at the blinding speed of " + "updates " + frames + " and fps");
-
-          frames = 0;
-          updates = 0;
         }
       }
       stop();
     }
   }
 
-  public void update() {}
+  public void update() {
+    screen.board.generateNext();
+  }
 
   public void render() {
     BufferStrategy bs = getBufferStrategy();
