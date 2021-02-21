@@ -12,8 +12,11 @@ public class Customer extends Thread {
   public void run() {
     while (!cut) {
       if (barberShop.hasFreeSpace()) enter();
-      else
+      else {
         leaveNoSpace();
+        break;
+      }
+
 
       try {
         barberShop.customerReady.release();

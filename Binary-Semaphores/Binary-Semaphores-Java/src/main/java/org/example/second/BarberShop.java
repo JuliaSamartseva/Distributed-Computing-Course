@@ -9,7 +9,6 @@ public class BarberShop extends Thread {
   private final int customersPoolNumber;
   public Semaphore customerReady = new Semaphore(0);
   public Semaphore barberReady = new Semaphore(0);
-  public Semaphore allEmpty = new Semaphore(1);
 
   public BarberShop(int freeSeats, int customersPoolNumber) {
     this.freeSeats = new AtomicInteger(freeSeats);
@@ -35,7 +34,7 @@ public class BarberShop extends Thread {
     barber.start();
 
     Random random = new Random();
-    for (int i=1; i < customersPoolNumber; i++) {
+    for (int i = 1; i < customersPoolNumber; i++) {
       Customer customer = new Customer(this);
       customer.start();
       try {
