@@ -105,7 +105,20 @@ public class Game extends Canvas implements Runnable {
 
           @Override
           public void keyPressed(KeyEvent e) {
-            screen.regenerateBoard();
+            switch (e.getKeyCode()) {
+              case KeyEvent.VK_2:
+                screen.regenerateBoard(2);
+                break;
+              case KeyEvent.VK_3:
+                screen.regenerateBoard(3);
+                break;
+              case KeyEvent.VK_4:
+                screen.regenerateBoard(4);
+                break;
+              default:
+                screen.regenerateBoard(1);
+                break;
+            }
           }
 
           @Override

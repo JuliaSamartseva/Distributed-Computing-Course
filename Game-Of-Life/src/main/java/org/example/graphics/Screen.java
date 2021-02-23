@@ -8,7 +8,6 @@ import java.util.Arrays;
 
 public class Screen {
   public static final int DEFAULT_SIZE = 10;
-  public static final int DEFAULT_ALIVE_COLOR = Color.WHITE.getRGB();
   public static final int DEFAULT_DEAD_COLOR = Color.BLACK.getRGB();
   public final Board board;
   private final int width;
@@ -30,8 +29,8 @@ public class Screen {
     pixels = new int[width * height];
   }
 
-  public void regenerateBoard() {
-    board.regenerateBoard();
+  public void regenerateBoard(int generationsNumber) {
+    board.regenerateBoard(generationsNumber);
   }
 
   public void clear() {
@@ -49,7 +48,7 @@ public class Screen {
         if (currentRow >= rowNumber) currentRow -= 1;
         else if (currentColumn >= columnNumber) currentColumn -= 1;
         Cell cell = board.get(currentColumn, currentRow);
-        pixels[x + y * width] = cell.isAlive() ? DEFAULT_ALIVE_COLOR : DEFAULT_DEAD_COLOR;
+        pixels[x + y * width] = cell.isAlive() ? cell.getColor() : DEFAULT_DEAD_COLOR;
       }
     }
   }
