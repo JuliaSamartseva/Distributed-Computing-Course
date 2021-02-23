@@ -1,6 +1,7 @@
 package org.example.logic;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
 
 public class Board {
   private final Cell[][] cells;
@@ -19,11 +20,39 @@ public class Board {
   }
 
   public void generateNext() {
+    Thread leftTop = new Thread(() -> {
+      generateNextInThread(0, width / 2, 0, height / 2);
+    });
+    Thread rightTop = new Thread(() -> {
+      generateNextInThread(width / 2, width, 0, height / 2);
+    });
+    Thread leftBottom = new Thread(() -> {
+      generateNextInThread(0, width / 2, height / 2, height);
+    });
+    Thread rightBottom = new Thread(() -> {
+      generateNextInThread(width / 2, width, height / 2, height);
+    });
+    leftTop.start();
+    rightTop.start();
+    leftBottom.start();
+    rightBottom.start();
+    try {
+      leftTop.join();
+      rightTop.join();
+      leftBottom.join();
+      rightBottom.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+  }
+
+  public void generateNextInThread(int startWidth, int endWidth, int startHeight, int endHeight) {
     List<Cell> liveCells = new ArrayList<>();
     List<Cell> deadCells = new ArrayList<>();
 
-    for (int i = 0; i < width; i++) {
-      for (int j = 0; j < height; j++) {
+    for (int i = startWidth; i < endWidth; i++) {
+      for (int j = startHeight; j < endHeight; j++) {
         Cell cell = cells[i][j];
         HashMap<Integer, Integer> neighboursNumber = getNeighbours(i, j);
         int allNeighbours = getAllNeighbours(i, j);
