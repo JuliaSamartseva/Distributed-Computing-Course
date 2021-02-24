@@ -1,8 +1,11 @@
 package org.example.graphics;
 
+import org.example.logic.Bullet;
+
 public class Sprite {
   public static Sprite background = new Sprite("src/main/resources/background.jpg");
   public static Sprite shooter = new Sprite("src/main/resources/shooter.png");
+  public static Sprite bullet = new Sprite("src/main/resources/bullet.png");
 
   private int width, height;
   private int[] pixels;

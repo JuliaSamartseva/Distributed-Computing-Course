@@ -23,7 +23,7 @@ public class Screen {
     }
   }
 
-  public void renderPlayer(int xp, int yp, Sprite sprite) {
+  public void renderMovement(int xp, int yp, Sprite sprite) {
     int[] playerPixels = sprite.getPixels();
     for (int y = 0; y < sprite.getHeight(); y++) {
       int ya = y + yp;
