@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.graphics.Screen;
+import org.example.graphics.Sprite;
 import org.example.input.Keyboard;
 import org.example.logic.Shooter;
 
@@ -30,10 +31,12 @@ public class Game extends Canvas implements Runnable {
     Dimension size = new Dimension(width * scale, height * scale);
     setPreferredSize(size);
     frame = new JFrame();
-    setFrameProperties();
     key = new Keyboard();
+    setFrameProperties();
     screen = new Screen(width, height);
-    shooter = new Shooter(key);
+    shooter =
+        new Shooter(
+            width / 2 - (Sprite.shooter.getWidth() / 2), height - Sprite.shooter.getHeight(), key, screen);
   }
 
   public synchronized void start() {
@@ -74,6 +77,7 @@ public class Game extends Canvas implements Runnable {
 
   public void update() {
     key.update();
+    shooter.update();
   }
 
   public void render() {
@@ -99,6 +103,7 @@ public class Game extends Canvas implements Runnable {
   private void setFrameProperties() {
     frame.setResizable(false);
     frame.setTitle("Game of Life");
+    frame.addKeyListener(key);
     frame.add(this);
     frame.pack();
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

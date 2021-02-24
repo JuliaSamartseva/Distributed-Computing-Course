@@ -15,11 +15,20 @@ public class Shooter extends Move implements EventListener {
     sprite = Sprite.shooter;
   }
 
-  public void update() {
-    int xa = 0, ya = 0;
+  public Shooter(int x, int y, Keyboard input, Screen screen) {
+    this.gameHeight = screen.getHeight();
+    this.gameWidth = screen.getWidth();
+    this.x = x;
+    this.y = y;
+    this.input = input;
+    sprite = Sprite.shooter;
+  }
 
-    if (input.left) xa -= 5;
-    if (input.right) xa += 5;
+  public void update() {
+    int xa = 0;
+
+    if (input.left) xa -= 3;
+    if (input.right) xa += 3;
 
     move(xa, 0);
   }

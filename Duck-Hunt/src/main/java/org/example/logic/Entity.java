@@ -1,7 +1,8 @@
 package org.example.logic;
 
-
 public abstract class Entity {
+  protected int gameWidth;
+  protected int gameHeight;
   protected int x, y;
   private boolean removed = false;
 
