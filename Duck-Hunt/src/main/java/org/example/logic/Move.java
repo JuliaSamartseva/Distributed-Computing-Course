@@ -9,7 +9,7 @@ public abstract class Move extends Entity {
       return;
     }
 
-    if (x + xa > 0 && x + xa + 10 < gameWidth) x += xa;
+    if (x + xa + 10 > 0 && x + xa + 10 < gameWidth) x += xa;
     y += ya;
   }
 }

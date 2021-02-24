@@ -1,6 +1,5 @@
 package org.example.graphics;
 
-import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
 public class Screen {

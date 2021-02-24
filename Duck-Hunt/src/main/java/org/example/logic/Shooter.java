@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Shooter extends Move implements EventListener {
   private final Sprite sprite = Sprite.shooter;
-  ;
+
   private final Keyboard input;
   private List<Bullet> bullets = new ArrayList<>();
   private int fireRate = Bullet.FIRE_RATE;
@@ -51,6 +51,10 @@ public class Shooter extends Move implements EventListener {
       bullets.add(new Bullet(x + sprite.getWidth() / 2, y - sprite.getHeight()));
       fireRate = Bullet.FIRE_RATE;
     }
+  }
+
+  public int getHeight() {
+    return sprite.getHeight();
   }
 
   public void render(Screen screen) {

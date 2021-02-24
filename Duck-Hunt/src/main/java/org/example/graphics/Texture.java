@@ -36,6 +36,16 @@ public class Texture {
     return new Texture(width, height, pixels);
   }
 
+  public static Texture loadImage(BufferedImage image) {
+    int width = 0, height = 0;
+    int[] pixels = null;
+    width = image.getWidth();
+    height = image.getHeight();
+    pixels = new int[width * height];
+    image.getRGB(0, 0, width, height, pixels, 0, width);
+    return new Texture(width, height, pixels);
+  }
+
   public int getWidth() {
     return width;
   }

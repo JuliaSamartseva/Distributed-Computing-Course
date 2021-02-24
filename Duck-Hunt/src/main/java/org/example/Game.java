@@ -3,6 +3,9 @@ package org.example;
 import org.example.graphics.Screen;
 import org.example.graphics.Sprite;
 import org.example.input.Keyboard;
+import org.example.logic.Direction;
+import org.example.logic.Duck;
+import org.example.logic.DuckGenerator;
 import org.example.logic.Shooter;
 
 import javax.swing.*;
@@ -10,7 +13,11 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Game extends Canvas implements Runnable {
 
@@ -25,7 +32,9 @@ public class Game extends Canvas implements Runnable {
   private final int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
   private Thread thread;
   private volatile boolean running = false;
+
   private final Shooter shooter;
+  private List<Duck> ducks;
 
   public Game() {
     Dimension size = new Dimension(width * scale, height * scale);
@@ -34,9 +43,20 @@ public class Game extends Canvas implements Runnable {
     key = new Keyboard();
     setFrameProperties();
     screen = new Screen(width, height);
+
     shooter =
         new Shooter(
-            width / 2 - (Sprite.shooter.getWidth() / 2), height - Sprite.shooter.getHeight(), key, screen);
+            width / 2 - (Sprite.shooter.getWidth() / 2),
+            height - Sprite.shooter.getHeight(),
+            key,
+            screen);
+    ducks = Collections.synchronizedList(new ArrayList<Duck>());
+    generateDucks();
+  }
+
+  public void generateDucks() {
+    Thread generatingThread = new Thread(new DuckGenerator(width, height, shooter.getHeight(), ducks));
+    generatingThread.start();
   }
 
   public synchronized void start() {
@@ -78,6 +98,9 @@ public class Game extends Canvas implements Runnable {
   public void update() {
     key.update();
     shooter.update();
+    for (Duck duck : ducks) {
+      duck.update();
+    }
   }
 
   public void render() {
@@ -89,6 +112,10 @@ public class Game extends Canvas implements Runnable {
     screen.clear();
     screen.renderBackground();
     shooter.render(screen);
+    for (Duck duck : ducks) {
+      duck.render(screen);
+      if (duck.isRemoved()) ducks.remove(duck);
+    }
 
     for (int i = 0; i < pixels.length; i++) {
       pixels[i] = screen.getPixels()[i];
