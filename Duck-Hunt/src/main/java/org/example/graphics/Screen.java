@@ -1,19 +1,12 @@
 package org.example.graphics;
 
-import sun.java2d.pipe.RenderBuffer;
-
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Screen {
   private final int width;
   private final int height;
-  private int[] pixels, imagePixels;
-
-  private BufferedImage image;
-  private List<RenderBuffer> buffer = new LinkedList<RenderBuffer>();
+  private final int[] pixels;
 
   public Screen(int width, int height) {
     this.width = width;
@@ -21,17 +14,28 @@ public class Screen {
     pixels = new int[width * height];
   }
 
-  public void render(int x, int y, Renderable renderable) {
-    for (int yy = 0; yy < renderable.getHeight(); yy++) {
-      int yp = yy + y;
-      for (int xx = 0; xx < renderable.getWidth(); xx++) {
-        int xp = xx + x;
-        if (xp < 0 || xp >= width || yp < 0 || yp >= height) continue;
-        pixels[xp + yp * width] = renderable.getPixels()[xx + yy * renderable.getWidth()];
+  public void renderBackground() {
+    int[] backgroundPixels = Sprite.background.getPixels();
+    for (int y = 0; y < height; y++) {
+      for (int x = 0; x < width; x++) {
+        pixels[x + y * width] = backgroundPixels[x + y * width];
       }
     }
   }
 
+  public void renderPlayer(int xp, int yp, Sprite sprite) {
+    int[] playerPixels = sprite.getPixels();
+    for (int y = 0; y < sprite.getHeight(); y++) {
+      int ya = y + yp;
+      for (int x = 0; x < sprite.getWidth(); x++) {
+        int xa = x + xp;
+        if (xa < 0 || xa >= width || ya < 0 || ya >= height) continue;
+        int pixel = playerPixels[x + y * sprite.getWidth()];
+        if (pixel == 0) continue;
+        pixels[xa + ya * width] = pixel;
+      }
+    }
+  }
 
   public void clear() {
     Arrays.fill(pixels, 0);
@@ -48,9 +52,4 @@ public class Screen {
   public int getHeight() {
     return height;
   }
-
-  public BufferedImage getImage() {
-    return image;
-  }
-
 }

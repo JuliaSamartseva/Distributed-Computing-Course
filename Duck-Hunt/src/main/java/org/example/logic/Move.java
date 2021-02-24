@@ -9,7 +9,6 @@ public abstract class Move extends Entity {
       return;
     }
 
-    // check for collisions?
     x += xa;
     y += ya;
   }

@@ -1,8 +1,7 @@
 package org.example.logic;
 
-import org.example.graphics.Renderable;
 
-public abstract class Entity implements Renderable {
+public abstract class Entity {
   protected int x, y;
   private boolean removed = false;
 

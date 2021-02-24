@@ -1,6 +1,9 @@
 package org.example.graphics;
 
-public class Sprite implements Renderable {
+public class Sprite {
+  public static Sprite background = new Sprite("src/main/resources/background.jpg");
+  public static Sprite shooter = new Sprite("src/main/resources/shooter.png");
+
   private int width, height;
   private int[] pixels;
 
@@ -15,26 +18,18 @@ public class Sprite implements Renderable {
   private void create(Texture texture) {
     width = texture.getWidth();
     height = texture.getHeight();
-    pixels = texture.getPixels(Texture.FORMAT_RGB);
+    pixels = texture.getPixels(Texture.FORMAT_RGBA);
   }
 
-  @Override
   public int getWidth() {
-    return 0;
+    return width;
   }
 
-  @Override
   public int getHeight() {
-    return 0;
+    return height;
   }
 
-  @Override
   public int[] getPixels() {
-    return new int[0];
-  }
-
-  @Override
-  public void render(int x, int y, Screen screen) {
-    screen.render(x, y, this);
+    return pixels;
   }
 }

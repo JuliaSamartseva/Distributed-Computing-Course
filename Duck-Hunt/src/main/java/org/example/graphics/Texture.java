@@ -7,8 +7,10 @@ import javax.imageio.ImageIO;
 
 public class Texture {
 
-  private int width, height;
-  private int[] pixels, pixelsrgb;
+  private final int width;
+  private final int height;
+  private final int[] pixels;
+  private int[] pixelsrgb;
 
   public static final int FORMAT_RGB = 0x0;
   public static final int FORMAT_RGBA = 0x1;

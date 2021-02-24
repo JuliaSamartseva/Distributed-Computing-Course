@@ -1,15 +1,15 @@
 package org.example;
 
 import org.example.graphics.Screen;
+import org.example.input.Keyboard;
+import org.example.logic.Shooter;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.io.File;
-import java.io.IOException;
+
 
 public class Game extends Canvas implements Runnable {
 
@@ -19,23 +19,21 @@ public class Game extends Canvas implements Runnable {
 
   private final JFrame frame;
   private final Screen screen;
-  private BufferedImage background = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-  private final int[] pixels = ((DataBufferInt) background.getRaster().getDataBuffer()).getData();
+  private final Keyboard key;
+  private final BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+  private final int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
   private Thread thread;
   private volatile boolean running = false;
-  private List<Layer> layerStack = new ArrayList<Layer>();
+  private final Shooter shooter;
 
   public Game() {
     Dimension size = new Dimension(width * scale, height * scale);
     setPreferredSize(size);
     frame = new JFrame();
     setFrameProperties();
+    key = new Keyboard();
     screen = new Screen(width, height);
-    try {
-      background = ImageIO.read(new File("src/main/resources/background.jpg"));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    shooter = new Shooter(key);
   }
 
   public synchronized void start() {
@@ -74,7 +72,9 @@ public class Game extends Canvas implements Runnable {
     }
   }
 
-  public void update() {}
+  public void update() {
+    key.update();
+  }
 
   public void render() {
     BufferStrategy bs = getBufferStrategy();
@@ -83,10 +83,15 @@ public class Game extends Canvas implements Runnable {
       return;
     }
     screen.clear();
+    screen.renderBackground();
+    shooter.render(screen);
 
+    for (int i = 0; i < pixels.length; i++) {
+      pixels[i] = screen.getPixels()[i];
+    }
 
     Graphics g = bs.getDrawGraphics();
-    g.drawImage(background, 0, 0, getWidth(), getHeight(), null);
+    g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
     g.dispose();
     bs.show();
   }
