@@ -6,10 +6,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class SpriteSheet {
+  public static SpriteSheet ducks = new SpriteSheet("src/main/resources/duckSpriteSheet.png");
   public String path;
   public BufferedImage image;
-
-  public static SpriteSheet ducks = new SpriteSheet("src/main/resources/duckSpriteSheet.png");
 
   public SpriteSheet(String path) {
     this.path = path;

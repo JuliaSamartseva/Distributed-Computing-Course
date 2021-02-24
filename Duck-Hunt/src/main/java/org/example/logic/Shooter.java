@@ -14,8 +14,8 @@ public class Shooter extends Move implements EventListener {
 
   private final Keyboard input;
   private final List<Bullet> bullets = new ArrayList<>();
-  private int fireRate = Bullet.FIRE_RATE;
   private final List<Duck> ducks;
+  private int fireRate = Bullet.FIRE_RATE;
 
   public Shooter(int x, int y, Keyboard input, Screen screen, List<Duck> ducks) {
     this.gameHeight = screen.getHeight();

@@ -4,7 +4,6 @@ public class Sprite {
   public static Sprite background = new Sprite("src/main/resources/background.jpg");
   public static Sprite shooter = new Sprite("src/main/resources/shooter.png");
   public static Sprite bullet = new Sprite("src/main/resources/bullet.png");
-  public static Sprite shot = new Sprite("src/main/resources/shot.png");
 
   private int width, height;
   private int[] pixels;
@@ -19,15 +18,19 @@ public class Sprite {
 
   public static Sprite[] getLeftDucks() {
     Sprite[] leftDuck = new Sprite[2];
-    leftDuck[0] = new Sprite(Texture.loadImage(SpriteSheet.ducks.image.getSubimage(141, 0, 32, 32)));
-    leftDuck[1] = new Sprite(Texture.loadImage(SpriteSheet.ducks.image.getSubimage(279, 0, 32, 32)));
+    leftDuck[0] =
+        new Sprite(Texture.loadImage(SpriteSheet.ducks.image.getSubimage(141, 0, 32, 32)));
+    leftDuck[1] =
+        new Sprite(Texture.loadImage(SpriteSheet.ducks.image.getSubimage(279, 0, 32, 32)));
     return leftDuck;
   }
 
   public static Sprite[] getRightDucks() {
     Sprite[] rightDuck = new Sprite[2];
-    rightDuck[0] = new Sprite(Texture.loadImage(SpriteSheet.ducks.image.getSubimage(190,0,32,32)));
-    rightDuck[1] = new Sprite(Texture.loadImage(SpriteSheet.ducks.image.getSubimage(234,0,32,32)));
+    rightDuck[0] =
+        new Sprite(Texture.loadImage(SpriteSheet.ducks.image.getSubimage(190, 0, 32, 32)));
+    rightDuck[1] =
+        new Sprite(Texture.loadImage(SpriteSheet.ducks.image.getSubimage(234, 0, 32, 32)));
     return rightDuck;
   }
 

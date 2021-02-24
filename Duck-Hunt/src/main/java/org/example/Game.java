@@ -28,11 +28,10 @@ public class Game extends Canvas implements Runnable {
   private final Keyboard key;
   private final BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
   private final int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
-  private Thread thread;
-  private volatile boolean running = false;
-
   private final Shooter shooter;
   private final List<Duck> ducks;
+  private Thread thread;
+  private volatile boolean running = false;
 
   public Game() {
     Dimension size = new Dimension(width * scale, height * scale);

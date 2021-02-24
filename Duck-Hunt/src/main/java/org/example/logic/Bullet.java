@@ -2,6 +2,7 @@ package org.example.logic;
 
 import org.example.graphics.Screen;
 import org.example.graphics.Sprite;
+
 import java.util.List;
 
 public class Bullet extends Move {
@@ -28,7 +29,8 @@ public class Bullet extends Move {
 
   private boolean checkCollision() {
     for (Duck duck : ducks) {
-      if ((x >= duck.x - 5 && x <= (duck.x + duck.getWidth() + 5)) && (y >= duck.y - 5 && y <= (duck.y + duck.getHeight() + 5))) {
+      if ((x >= duck.x - 5 && x <= (duck.x + duck.getWidth() + 5))
+          && (y >= duck.y - 5 && y <= (duck.y + duck.getHeight() + 5))) {
         duck.remove();
         remove();
         return true;
@@ -36,5 +38,4 @@ public class Bullet extends Move {
     }
     return false;
   }
-
 }

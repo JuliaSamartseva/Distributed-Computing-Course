@@ -4,10 +4,9 @@ import org.example.graphics.Screen;
 import org.example.graphics.Sprite;
 
 public class Duck extends Move {
-  private Sprite[] sprite;
-  private final Sprite shot = Sprite.shot;
-  private Direction direction;
   private final int speed;
+  private Sprite[] sprite;
+  private Direction direction;
   private int counter = 0;
   private int currentDuck = 0;
 
@@ -41,10 +40,8 @@ public class Duck extends Move {
         break;
     }
 
-    if (x + xa + 10 >= gameWidth)
-      initialiseLeft();
-    else if (x + xa + 10 <= 0)
-      initialiseRight();
+    if (x + xa + 10 >= gameWidth) initialiseLeft();
+    else if (x + xa + 10 <= 0) initialiseRight();
 
     move(xa, 0);
   }
@@ -76,5 +73,4 @@ public class Duck extends Move {
   public int getHeight() {
     return sprite[currentDuck].getHeight();
   }
-
 }

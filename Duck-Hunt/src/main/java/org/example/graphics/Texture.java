@@ -1,19 +1,18 @@
 package org.example.graphics;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.FileInputStream;
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class Texture {
 
+  public static final int FORMAT_RGB = 0x0;
+  public static final int FORMAT_RGBA = 0x1;
   private final int width;
   private final int height;
   private final int[] pixels;
   private int[] pixelsrgb;
-
-  public static final int FORMAT_RGB = 0x0;
-  public static final int FORMAT_RGBA = 0x1;
 
   private Texture(int width, int height, int[] pixels) {
     this.width = width;
