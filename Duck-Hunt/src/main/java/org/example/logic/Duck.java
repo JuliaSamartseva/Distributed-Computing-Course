@@ -5,7 +5,7 @@ import org.example.graphics.Sprite;
 
 public class Duck extends Move {
   private Sprite[] sprite;
-  private Sprite shot = Sprite.shot;
+  private final Sprite shot = Sprite.shot;
   private Direction direction;
   private final int speed;
   private int counter = 0;
@@ -67,6 +67,14 @@ public class Duck extends Move {
     }
 
     screen.renderMovement(x, y, sprite[currentDuck]);
+  }
+
+  public int getWidth() {
+    return sprite[currentDuck].getWidth();
+  }
+
+  public int getHeight() {
+    return sprite[currentDuck].getHeight();
   }
 
 }

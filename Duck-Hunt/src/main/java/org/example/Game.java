@@ -3,7 +3,6 @@ package org.example;
 import org.example.graphics.Screen;
 import org.example.graphics.Sprite;
 import org.example.input.Keyboard;
-import org.example.logic.Direction;
 import org.example.logic.Duck;
 import org.example.logic.DuckGenerator;
 import org.example.logic.Shooter;
@@ -15,9 +14,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class Game extends Canvas implements Runnable {
 
@@ -34,7 +32,7 @@ public class Game extends Canvas implements Runnable {
   private volatile boolean running = false;
 
   private final Shooter shooter;
-  private List<Duck> ducks;
+  private final List<Duck> ducks;
 
   public Game() {
     Dimension size = new Dimension(width * scale, height * scale);
@@ -43,19 +41,22 @@ public class Game extends Canvas implements Runnable {
     key = new Keyboard();
     setFrameProperties();
     screen = new Screen(width, height);
+    ducks = Collections.synchronizedList(new ArrayList<Duck>());
 
     shooter =
         new Shooter(
             width / 2 - (Sprite.shooter.getWidth() / 2),
             height - Sprite.shooter.getHeight(),
             key,
-            screen);
-    ducks = Collections.synchronizedList(new ArrayList<Duck>());
+            screen,
+            ducks);
+
     generateDucks();
   }
 
   public void generateDucks() {
-    Thread generatingThread = new Thread(new DuckGenerator(width, height, shooter.getHeight(), ducks));
+    Thread generatingThread =
+        new Thread(new DuckGenerator(width, height, shooter.getHeight(), ducks));
     generatingThread.start();
   }
 
@@ -112,9 +113,14 @@ public class Game extends Canvas implements Runnable {
     screen.clear();
     screen.renderBackground();
     shooter.render(screen);
-    for (Duck duck : ducks) {
+
+    Iterator<Duck> iterator = ducks.iterator();
+    while (iterator.hasNext()) {
+      Duck duck = iterator.next();
       duck.render(screen);
-      if (duck.isRemoved()) ducks.remove(duck);
+      if (duck.isRemoved()) {
+        iterator.remove();
+      }
     }
 
     for (int i = 0; i < pixels.length; i++) {

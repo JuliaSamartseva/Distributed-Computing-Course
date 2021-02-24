@@ -6,25 +6,24 @@ import org.example.input.Keyboard;
 
 import java.util.ArrayList;
 import java.util.EventListener;
+import java.util.Iterator;
 import java.util.List;
 
 public class Shooter extends Move implements EventListener {
   private final Sprite sprite = Sprite.shooter;
 
   private final Keyboard input;
-  private List<Bullet> bullets = new ArrayList<>();
+  private final List<Bullet> bullets = new ArrayList<>();
   private int fireRate = Bullet.FIRE_RATE;
+  private final List<Duck> ducks;
 
-  public Shooter(Keyboard input) {
-    this.input = input;
-  }
-
-  public Shooter(int x, int y, Keyboard input, Screen screen) {
+  public Shooter(int x, int y, Keyboard input, Screen screen, List<Duck> ducks) {
     this.gameHeight = screen.getHeight();
     this.gameWidth = screen.getWidth();
     this.x = x;
     this.y = y;
     this.input = input;
+    this.ducks = ducks;
   }
 
   public void update() {
@@ -37,8 +36,14 @@ public class Shooter extends Move implements EventListener {
 
     move(xa, 0);
 
-    for (Bullet bullet : bullets) {
-      bullet.update();
+    Iterator<Bullet> iterator = bullets.iterator();
+    while (iterator.hasNext()) {
+      Bullet bullet = iterator.next();
+      if (bullet.isRemoved()) {
+        iterator.remove();
+      } else {
+        bullet.update();
+      }
     }
 
     if (input.shooting) {
@@ -48,7 +53,7 @@ public class Shooter extends Move implements EventListener {
 
   private void shoot() {
     if (fireRate <= 0) {
-      bullets.add(new Bullet(x + sprite.getWidth() / 2, y - sprite.getHeight()));
+      bullets.add(new Bullet(x + sprite.getWidth() / 2, y - sprite.getHeight(), ducks));
       fireRate = Bullet.FIRE_RATE;
     }
   }
