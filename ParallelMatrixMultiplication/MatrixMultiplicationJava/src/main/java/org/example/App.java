@@ -28,7 +28,7 @@ public class App {
   }
 
   public static void main(String[] args) {
-    int dimension = 1000;
+    int dimension = 2000;
     Double[][] A = fillRandom(dimension);
     Double[][] B = fillRandom(dimension);
     Double[][] C = fillRandom(dimension);
