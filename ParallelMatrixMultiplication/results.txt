@@ -1,0 +1,15 @@
+Java Fork Join:
+Matrix [1000x1000] Time: 3554ms
+Matrix [2000x2000] Time: 80637ms
+
+Golang:
+Matrix [1000x1000] Time: 1761ms
+Matrix [2000x2000] Time: 47110ms
+
+C++ OpenMP:
+Matrix [1000x1000] Time: 5732 ms
+Matrix [2000x2000] Time: 91458 ms
+
+C++ Intel Threading Building Blocks:
+Matrix [1000x1000] Time: 1603 ms
+Matrix [2000x2000] Time: 42734 ms
