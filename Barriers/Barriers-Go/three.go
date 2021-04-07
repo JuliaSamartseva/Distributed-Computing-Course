@@ -29,14 +29,13 @@ func generateArrays(size int) [][]int {
 
 func checkSum(arrays Arrays, sums []int, index int, ctx context.Context, group *sync.WaitGroup) {
 	for {
-		fmt.Println("Still working")
 		select {
 		case <-ctx.Done():
 			fmt.Println("Quitting...")
 			group.Done()
 			return
 		default:
-			fmt.Println("Default?")
+			fmt.Println("Changing element")
 			changeElement(arrays, index)
 			sums[index] = sum(arrays.data[index])
 			arrays.barrier.Await()

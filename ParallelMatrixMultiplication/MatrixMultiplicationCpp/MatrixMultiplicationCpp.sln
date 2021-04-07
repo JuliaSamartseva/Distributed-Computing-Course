@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MatrixMultiplicationCpp", "MatrixMultiplicationCpp\MatrixMultiplicationCpp.vcxproj", "{C2483C0F-5B32-47F4-8783-E4935A62B2E6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MatrixMultiplicationThreadingBlocks", "MatrixMultiplicationThreadingBlocks\MatrixMultiplicationThreadingBlocks.vcxproj", "{501C47FA-E90F-48D8-B5FC-2380F9FAE211}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2483C0F-5B32-47F4-8783-E4935A62B2E6}.Debug|x64.ActiveCfg = Debug|x64
+		{C2483C0F-5B32-47F4-8783-E4935A62B2E6}.Debug|x64.Build.0 = Debug|x64
+		{C2483C0F-5B32-47F4-8783-E4935A62B2E6}.Debug|x86.ActiveCfg = Debug|Win32
+		{C2483C0F-5B32-47F4-8783-E4935A62B2E6}.Debug|x86.Build.0 = Debug|Win32
+		{C2483C0F-5B32-47F4-8783-E4935A62B2E6}.Release|x64.ActiveCfg = Release|x64
+		{C2483C0F-5B32-47F4-8783-E4935A62B2E6}.Release|x64.Build.0 = Release|x64
+		{C2483C0F-5B32-47F4-8783-E4935A62B2E6}.Release|x86.ActiveCfg = Release|Win32
+		{C2483C0F-5B32-47F4-8783-E4935A62B2E6}.Release|x86.Build.0 = Release|Win32
+		{501C47FA-E90F-48D8-B5FC-2380F9FAE211}.Debug|x64.ActiveCfg = Debug|x64
+		{501C47FA-E90F-48D8-B5FC-2380F9FAE211}.Debug|x64.Build.0 = Debug|x64
+		{501C47FA-E90F-48D8-B5FC-2380F9FAE211}.Debug|x86.ActiveCfg = Debug|Win32
+		{501C47FA-E90F-48D8-B5FC-2380F9FAE211}.Debug|x86.Build.0 = Debug|Win32
+		{501C47FA-E90F-48D8-B5FC-2380F9FAE211}.Release|x64.ActiveCfg = Release|x64
+		{501C47FA-E90F-48D8-B5FC-2380F9FAE211}.Release|x64.Build.0 = Release|x64
+		{501C47FA-E90F-48D8-B5FC-2380F9FAE211}.Release|x86.ActiveCfg = Release|Win32
+		{501C47FA-E90F-48D8-B5FC-2380F9FAE211}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A9CC929-9933-4426-A9A8-412DCE61B807}
+	EndGlobalSection
+EndGlobal
