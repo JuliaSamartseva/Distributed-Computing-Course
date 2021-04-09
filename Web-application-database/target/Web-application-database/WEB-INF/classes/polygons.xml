@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<geometry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="polygons.xsd">
+    <geometricalObject id="1">
+        <name>Triangle</name>
+        <type>Irregular</type>
+        <sides>3</sides>
+        <coordinates>
+            <point><x>30.0</x><y>10.0</y></point>
+            <point><x>10.0</x><y>30.0</y></point>
+            <point><x>40.0</x><y>40.0</y></point>
+        </coordinates>
+    </geometricalObject>
+    <geometricalObject id="2">
+        <name>Pentagon</name>
+        <type>Regular</type>
+        <sides>5</sides>
+        <coordinates>
+            <point><x>0.0</x><y>8.0</y></point>
+            <point><x>6.0</x><y>5.0</y></point>
+            <point><x>6.0</x><y>-1.0</y></point>
+            <point><x>-2.0</x><y>-4.0</y></point>
+            <point><x>-5.0</x><y>3.0</y></point>
+        </coordinates>
+    </geometricalObject>
+    <geometricalObject id="3">
+        <name>Polygon</name>
+        <type>Irregular</type>
+        <sides>4</sides>
+        <coordinates>
+            <point><x>30.0</x><y>10.5</y></point>
+            <point><x>40.2</x><y>41.2</y></point>
+            <point><x>20.0</x><y>41.2</y></point>
+            <point><x>10.2</x><y>20.4</y></point>
+        </coordinates>
+    </geometricalObject>
+</geometry>

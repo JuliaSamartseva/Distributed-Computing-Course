@@ -1,0 +1,46 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+           elementFormDefault="qualified">
+    <xs:element name="geometry">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="geometricalObject" maxOccurs="unbounded" minOccurs="0">
+
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="name"/>
+
+                            <xs:element name="type">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Regular" />
+                                        <xs:enumeration value="Irregular" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+
+                            <xs:element type="xs:int" name="sides"/>
+
+                            <xs:element name="coordinates">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="point" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:float" name="x"/>
+                                                    <xs:element type="xs:float" name="y"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+                    </xs:complexType>
+
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
