@@ -10,9 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ed27068-4434-4a74-a618-a4edee856c2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/data/Coordinates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/data/GeometricalObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/data/Point.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/parsers/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/parsers/XMLGeometry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/parsers/XMLValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Geometry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/polygons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/polygons.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/polygons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/polygons.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +90,20 @@
   <component name="RunDashboard">
     <option name="openRunningConfigInTab" value="true" />
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.44">
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="parsers.Test" />
+      <module name="Web-application-database" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="parsers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -114,16 +131,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ServletTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServletTests.PostNullLatitude" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Web-application-database" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ServletTests" />
-      <option name="METHOD_NAME" value="PostNullLatitude" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -412,20 +419,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.ServletTests" />
-      <item itemvalue="JUnit.ServletTests.PostNullLatitude" />
       <item itemvalue="JUnit.ServletTests.testRegistrationIncorrectDetails" />
       <item itemvalue="JUnit.ServletTests.testShowAllProducts" />
       <item itemvalue="JUnit.AppTest" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.44" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.2" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="JUnit.AppTest" />
         <item itemvalue="JUnit.ServletTests" />
         <item itemvalue="JUnit.ServletTests.testShowAllProducts" />
         <item itemvalue="JUnit.ServletTests.testRegistrationIncorrectDetails" />
-        <item itemvalue="JUnit.ServletTests.PostNullLatitude" />
       </list>
     </recent_temporary>
   </component>
@@ -449,7 +456,9 @@
       <workItem from="1616579941876" duration="594000" />
       <workItem from="1617035402677" duration="218000" />
       <workItem from="1617971463332" duration="317000" />
-      <workItem from="1617971862847" duration="5642000" />
+      <workItem from="1617971862847" duration="10132000" />
+      <workItem from="1618158817368" duration="203000" />
+      <workItem from="1618159052165" duration="3370000" />
     </task>
     <servers />
   </component>
@@ -467,6 +476,13 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="geometry.geometricalObjects.get(1).coordinates.point.get(3)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

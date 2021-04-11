@@ -3,10 +3,7 @@ package data;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -15,6 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "geometry")
 public class Geometry {
 
+    @XmlElement(name = "geometricalObject", required = true)
     protected List<GeometricalObject> geometricalObjects;
 
     public List<GeometricalObject> getGeometricalObjects() {
