@@ -10,13 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ed27068-4434-4a74-a618-a4edee856c2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/parsers/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/parsers/XMLGeometry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/parsers/XMLValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_0_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/GeometryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/geometrical-objects/js/object-manager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/geometrical-objects/object-manager.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Web-application-database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Web-application-database.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Web_application_database_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Web_application_database_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/GeometricalObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/GeometricalObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Geometry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/polygons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/polygons.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/polygons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/polygons.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/parsers/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +39,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Jsp File" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="FxmlFile" />
+        <option value="Jsp File" />
+        <option value="JavaScript File" />
         <option value="Class" />
       </list>
     </option>
@@ -66,14 +78,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OOP/Java-course/second_semester/Web-application-database" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.12195122" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -104,15 +118,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -418,13 +430,13 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Test" />
       <item itemvalue="JUnit.ServletTests" />
       <item itemvalue="JUnit.ServletTests.testRegistrationIncorrectDetails" />
       <item itemvalue="JUnit.ServletTests.testShowAllProducts" />
       <item itemvalue="JUnit.AppTest" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.44" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.2" />
-      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
@@ -458,7 +470,11 @@
       <workItem from="1617971463332" duration="317000" />
       <workItem from="1617971862847" duration="10132000" />
       <workItem from="1618158817368" duration="203000" />
-      <workItem from="1618159052165" duration="3370000" />
+      <workItem from="1618159052165" duration="5267000" />
+      <workItem from="1618493015786" duration="15321000" />
+      <workItem from="1618655992158" duration="1581000" />
+      <workItem from="1618662186962" duration="3215000" />
+      <workItem from="1618666201400" duration="3623000" />
     </task>
     <servers />
   </component>

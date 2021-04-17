@@ -57,7 +57,19 @@
       <version>5.7.0-RC1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>0.9.2</version>
+    </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>projectlombok.org</id>
+      <url>http://projectlombok.org/mavenrepo</url>
+    </repository>
+  </repositories>
 
   <build>
     <finalName>Web-application-database</finalName>

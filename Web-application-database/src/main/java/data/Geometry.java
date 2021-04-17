@@ -1,10 +1,13 @@
 
 package data;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.*;
 
+@Data
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "geometricalObjects"

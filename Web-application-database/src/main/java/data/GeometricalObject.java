@@ -1,8 +1,11 @@
 package data;
 
+import lombok.Data;
+
 import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
 
+@Data
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "name",
@@ -21,7 +24,7 @@ public class GeometricalObject {
   protected Coordinates coordinates;
   @XmlAttribute(name = "id", required = true)
   @XmlSchemaType(name = "positiveInteger")
-  protected BigInteger id;
+  protected Integer id;
 
   /**
    * Gets the value of the name property.
@@ -101,9 +104,9 @@ public class GeometricalObject {
    * Gets the value of the id property.
    *
    * @return possible object is
-   * {@link BigInteger }
+   * {@link Integer }
    */
-  public BigInteger getId() {
+  public Integer getId() {
     return id;
   }
 
@@ -113,7 +116,7 @@ public class GeometricalObject {
    * @param value allowed object is
    *              {@link BigInteger }
    */
-  public void setId(BigInteger value) {
+  public void setId(Integer value) {
     this.id = value;
   }
 
