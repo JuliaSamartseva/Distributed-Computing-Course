@@ -10,14 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ed27068-4434-4a74-a618-a4edee856c2d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servlets/ObjectsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/parsers/XMLGeometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parsers/XMLGeometry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/GeometryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/GeometryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/geometrical-objects/js/object-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/geometrical-objects/js/object-manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/geometrical-objects/object-manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/geometrical-objects/object-manager.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/XMLServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/XMLServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Web-application-database/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web-application-database/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Web-application-database/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web-application-database/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -463,7 +463,7 @@
       <workItem from="1618493015786" duration="15321000" />
       <workItem from="1618655992158" duration="1581000" />
       <workItem from="1618662186962" duration="3215000" />
-      <workItem from="1618666201400" duration="14490000" />
+      <workItem from="1618666201400" duration="17048000" />
     </task>
     <servers />
   </component>

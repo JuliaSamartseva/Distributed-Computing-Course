@@ -7,18 +7,19 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.io.File;
+import java.io.*;
 import java.net.URL;
 
 public class XMLGeometry {
-  public void saveToFile(String xmlFilename, Geometry geometry) {
+  public static void saveToFile(String xmlFilename, Geometry geometry) {
     try {
       JAXBContext jaxbContext = JAXBContext.newInstance(Geometry.class);
       Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
       jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-      File file = new File(xmlFilename);
+      OutputStream file = new FileOutputStream(xmlFilename);
       jaxbMarshaller.marshal(geometry, file);
-    } catch (JAXBException e) {
+      file.close();
+    } catch (JAXBException | IOException e) {
       e.printStackTrace();
     }
   }

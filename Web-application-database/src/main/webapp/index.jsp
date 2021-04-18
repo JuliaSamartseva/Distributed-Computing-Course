@@ -12,8 +12,8 @@
     <br>
     <h3 class="text-center"></h3>
     <hr>
-    <a type="button" class="btn btn-dark">Load from file</a>
-    <a type="button" class="btn btn-dark" href="">Upload to file</a>
+    <a type="button" class="btn btn-dark" id="load">Load from file</a>
+    <a type="button" class="btn btn-dark" id="upload">Upload to file</a>
     <a type="button" class="btn btn-dark float-right" href="http://localhost:8080/Web_application_database_war/geometrical-objects/object-manager.jsp">Add new object</a>
     <hr>
     <table id="geometricalObjects" class="table table-striped">

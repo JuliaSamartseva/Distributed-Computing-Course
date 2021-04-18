@@ -29,6 +29,10 @@ public class GeometryService {
             "SELECT x, y FROM coordinates WHERE geometrical_object_id = ?";
     private static final String getObjectWithIdQuery =
             "SELECT id, name, type, sides FROM geometrical_objects WHERE id = ?";
+    private static final String removeAllCoordinatesQuery =
+            "DELETE FROM coordinates";
+    private static final String removeAllObjectsQuery =
+            "DELETE FROM geometrical_objects";
 
     public static void addObject(GeometricalObject object) {
         if (object == null) {
@@ -51,6 +55,22 @@ public class GeometryService {
             } else {
                 log.warning("Cannot add item with id " + object.getId());
             }
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void removeAllObjects() {
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            PreparedStatement prepareStatement =
+                    connection.prepareStatement(removeAllCoordinatesQuery);
+            if (prepareStatement.executeUpdate() <= 0)
+                log.warning("Cannot remove all coordinates");
+
+            prepareStatement =
+                    connection.prepareStatement(removeAllObjectsQuery);
+            if (prepareStatement.executeUpdate() <= 0)
+                log.warning("Cannot remove all objects");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
@@ -144,7 +164,7 @@ public class GeometryService {
     }
 
     private static Coordinates getAllCoordinates(int objectId) {
-        log.info("Getting geometry from the database.");
+        log.info("Getting coordinates from the database.");
         Coordinates geometry = new Coordinates();
         try (Connection connection = DatabaseConnection.getConnection()) {
             log.info("Connected to the database.");
@@ -183,6 +203,21 @@ public class GeometryService {
             PreparedStatement prepareStatement = connection.prepareStatement(removeObjectWithIdQuery);
             prepareStatement.setInt(1, id);
             if (prepareStatement.executeUpdate() <= 0) log.warning("Cannot remove object with id " + id);
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addGeometry(Geometry geometry) {
+        if (geometry == null) {
+            log.warning("Cannot add geometry because it was null.");
+            return;
+        }
+
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            for (GeometricalObject object : geometry.getGeometricalObjects()) {
+                addObject(object);
+            }
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }

@@ -1,4 +1,14 @@
 window.onload = async () => {
+    document.getElementById('load').onclick = async function () {
+        await fetch(`./servlets/xml/load`);
+        window.location.reload();
+    }
+
+    document.getElementById('upload').onclick = async function () {
+        await fetch(`./servlets/xml/upload`);
+        window.location.reload();
+    }
+
     await populateTable();
 }
 
